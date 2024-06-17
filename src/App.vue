@@ -1,17 +1,67 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <button @click="showModal">Add Student</button>
+    <Teleport to="#portal-root">
+      <ModalComponent :isVisible="isVisible" @close="isVisible = false">
+        <form @submit.prevent="addStudent">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" v-model="formData.name"/>
+          <br>
+          <label for="age">Age</label>
+          <input type="number" id="age" name="age" v-model="formData.age"/>
+          <br>
+          <label for="major">Major</label>
+          <input type="text" id="major" name="major" v-model="formData.major"/>
+          <br>
+          <label for="gpa">GPA</label>
+          <input type="number" id="gpa" name="gpa" v-model="formData.gpa"/>
+          <br>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" v-model="formData.email"/>
+          <br>
+          <label for="enrolled">Enrolled</label>
+          <input type="checkbox" id="enrolled" name="enrolled" v-model="formData.enrolled"/>
+          <br>
+          <button type="submit">Add</button>
+        </form>
+      </ModalComponent>
+    </Teleport>
+    <DataList ref="dataList"></DataList>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import DataList from "./components/DataList.vue";
+import ModalComponent from "./components/ModalComponent.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    DataList,
+    ModalComponent,
+  },
+  data() {
+    return {
+      isVisible: false,
+      formData:{
+        name: "",
+        age: "",
+        major: "",
+        gpa: "",
+        email: "",
+        enrolled: false
+      }
+    };
+  },
+  methods: {
+    showModal() {
+      this.isVisible = true;
+    },
+    addStudent() {
+      this.$refs.dataList.addStudent(this.formData);
+      this.isVisible = false;
+    }
+  },
+};
 </script>
 
 <style>
@@ -22,5 +72,33 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+form input:not([type="checkbox"]), form textarea {
+  display: block;
+  width: 400px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+form button {
+  display: block;
+  width: 100px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.42857143;
+  color: #fff;
+  background-color: #42b983;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0 auto;
 }
 </style>
