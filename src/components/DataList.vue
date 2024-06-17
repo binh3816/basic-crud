@@ -46,6 +46,7 @@ export default {
   created() {
     this.getStudents();
   },
+  
   methods: {
     addStudent(formData) {
       const newStudent = {
@@ -73,12 +74,29 @@ export default {
       axios
         .get("http://localhost:3000/students")
         .then((res) => {
-          console.log(res.data);
           this.students = res.data;
         })
         .catch((err) => {
           console.log(err);
         });
+    },
+    searchStudents(searchData) {
+        console.log(searchData)
+      const filteredStudents = this.students.filter((student) => {
+        if (
+          student.name.toLowerCase().includes(searchData.name.toLowerCase())
+        ) {
+          return true;
+        }
+        if (student.major.toLowerCase() === searchData.major.toLowerCase()) {
+          return true;
+        }
+        if (student.enrolled === searchData.enrolled) {
+          return true;
+        }
+        return false;
+      });
+      this.students = filteredStudents;
     },
   },
 };

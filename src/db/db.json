@@ -44,6 +44,96 @@
       "gpa": 3.5,
       "email": "eva.green@example.com",
       "enrolled": false
+    },
+    {
+      "id": 6,
+      "name": "Frank Davis",
+      "age": 24,
+      "major": "Engineering",
+      "gpa": 3.8,
+      "email": "frank.davis@example.com",
+      "enrolled": true
+    },
+    {
+      "id": 7,
+      "name": "Grace Thompson",
+      "age": 22,
+      "major": "History",
+      "gpa": 3.9,
+      "email": "grace.thompson@example.com",
+      "enrolled": false
+    },
+    {
+      "id": 8,
+      "name": "Henry Lee",
+      "age": 21,
+      "major": "Economics",
+      "gpa": 3.7,
+      "email": "henry.lee@example.com",
+      "enrolled": true
+    },
+    {
+      "id": 9,
+      "name": "Isabella Johnson",
+      "age": 23,
+      "major": "Psychology",
+      "gpa": 3.8,
+      "email": "isabella.johnson@example.com",
+      "enrolled": true
+    },
+    {
+      "id": 10,
+      "name": "Jackson Chen",
+      "age": 20,
+      "major": "Computer Science",
+      "gpa": 3.6,
+      "email": "jackson.chen@example.com",
+      "enrolled": false
+    },
+    {
+      "id": 11,
+      "name": "Karen Wilson",
+      "age": 22,
+      "major": "Mathematics",
+      "gpa": 3.9,
+      "email": "karen.wilson@example.com",
+      "enrolled": true
+    },
+    {
+      "id": 12,
+      "name": "Linda Brown",
+      "age": 21,
+      "major": "Physics",
+      "gpa": 3.7,
+      "email": "linda.brown@example.com",
+      "enrolled": true
+    },
+    {
+      "id": 13,
+      "name": "Mike Thompson",
+      "age": 23,
+      "major": "Chemistry",
+      "gpa": 3.5,
+      "email": "mike.thompson@example.com",
+      "enrolled": false
+    },
+    {
+      "id": 14,
+      "name": "Nancy Chen",
+      "age": 20,
+      "major": "Biology",
+      "gpa": 3.8,
+      "email": "nancy.chen@example.com",
+      "enrolled": true
+    },
+    {
+      "id": 15,
+      "name": "Olivia Johnson",
+      "age": 22,
+      "major": "Engineering",
+      "gpa": 3.6,
+      "email": "olivia.johnson@example.com",
+      "enrolled": false
     }
   ]
 }
