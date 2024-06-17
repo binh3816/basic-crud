@@ -2,52 +2,65 @@
   <div>
     <h1>Student Information</h1>
     <table>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Major</th>
-            <th>Gpa</th>
-            <th>Email</th>
-            <th>Enrolled</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="student in students" :key="student.id">
-            <td>{{ student.id }}</td>
-            <td>{{ student.name }}</td>
-            <td>{{ student.age }}</td>
-            <td>{{ student.major }}</td>
-            <td>{{ student.gpa }}</td>
-            <td>{{ student.email }}</td>
-            <td :class="student.enrolled ? 'enrolled' : 'not-enrolled'">{{ student.enrolled ? "Yes" : "No" }}</td>
-            <td><button @click="deleteStudent(student.id)">Delete</button></td>
-          </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Major</th>
+          <th>Gpa</th>
+          <th>Email</th>
+          <th>Enrolled</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="student in students" :key="student.id">
+          <td>{{ student.id }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.age }}</td>
+          <td>{{ student.major }}</td>
+          <td>{{ student.gpa }}</td>
+          <td>{{ student.email }}</td>
+          <td :class="student.enrolled ? 'enrolled' : 'not-enrolled'">
+            {{ student.enrolled ? "Yes" : "No" }}
+          </td>
+          <td><button @click="deleteStudent(student.id)">Delete</button></td>
+        </tr>
+      </tbody>
     </table>
-    
   </div>
 </template>
 
 <script>
-import {students} from "../mockData";
+import axios from "axios";
+
+// import {students} from "../mockData";
 export default {
   name: "DataList",
   data() {
     return {
-      students: students,
+      students: [],
     };
+  },
+  created() {
+    this.getStudents();
   },
   methods: {
     addStudent(formData) {
       const newStudent = {
-        id: students.length + 1,
+        id: this.students.length + 1,
         ...formData,
       };
       this.students.push(newStudent);
-      console.log(this.students);
+      axios
+        .post("http://localhost:3000/students", newStudent)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     deleteStudent(id) {
       this.students = this.students.filter((student) => student.id !== id);
@@ -55,6 +68,17 @@ export default {
     editStudent(id) {
       const student = this.students.find((student) => student.id === id);
       console.log(student);
+    },
+    getStudents() {
+      axios
+        .get("http://localhost:3000/students")
+        .then((res) => {
+          console.log(res.data);
+          this.students = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
@@ -73,7 +97,8 @@ table {
   font-family: Arial, sans-serif;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: center;
@@ -98,4 +123,3 @@ tr:hover {
   color: red;
 }
 </style>
-
