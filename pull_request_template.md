@@ -1,19 +1,25 @@
 ## PR Type
-- [ ] :pizza: Feature
-- [ ] :bug: Bug Fix
-- [ ] :memo: Documentation Update
-- [ ] :technologist: Code Refactor
-- [ ] :fire: Performance Improvements
-- [ ] :white_check_mark: Test
-- [ ] :robot_face: Build
-- [ ] :repeat: CI/CD
-- [ ] :package: Release
-- [ ] :fast_forward: Revert
+
+- [ ] 🍕 Feature
+- [ ] 🐛 Bug Fix
+- [ ] 📝 Documentation Update
+- [ ] 🧑‍💻 Code Refactor
+- [ ] 🔥 Performance Improvements
+- [ ] ✅ Test
+- [ ] 🤖 Build
+- [ ] 🔁 CI/CD
+- [ ] 📦 Release
+- [ ] ⏩ Revert
+
 ## Description
 (As the usual change write down the ticket name, Otherwise please summarize the changes or related issues and list any dependencies required for this change.)
+
 ## Ticket link
+
 ## How this was tested on development
+
 ## Documentation(Redmine, wiki) updates.
+
 ## Checklist
 - [ ] I have followed the style guidelines of this project
 - [ ] I have made corresponding changes as ticket requirements

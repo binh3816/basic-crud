@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Student Information</h1>
+    <h1>List of Students</h1>
     <table>
       <thead>
         <tr>
